@@ -7,9 +7,6 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-/**
- * Created by elka on 10/22/2015.
- */
 public class PresidentAdapter
         extends RecyclerView.Adapter<PresidentViewHolder>{
 
