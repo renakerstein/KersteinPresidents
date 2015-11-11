@@ -1,7 +1,9 @@
 package kerstein.presidents;
 
 
-public class President {
+import java.io.Serializable;
+
+public class President implements Serializable {
     private int number;
     private String president;
     private int birth_year;
@@ -14,7 +16,7 @@ public class President {
         return birth_year;
     }
 
-    public int getDeath_year() {
+    public Integer getDeath_year() {
         return death_year;
     }
 

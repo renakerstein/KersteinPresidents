@@ -17,7 +17,7 @@ import java.io.InputStreamReader;
 public class MainActivity extends AppCompatActivity {
 
     private RecyclerView recyclerView;
-    public static President[]presidents;
+    int [] photos;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -33,11 +33,19 @@ public class MainActivity extends AppCompatActivity {
                 .setFieldNamingPolicy(FieldNamingPolicy.LOWER_CASE_WITH_UNDERSCORES)
                 .create();
 
+        photos= new int[]{R.drawable.washington, R.drawable.adams, R.drawable.jefferson, R.drawable.madison, R.drawable.monroe, R.drawable.qadams,
+                R.drawable.jackson, R.drawable.vanburen, R.drawable.wharrison, R.drawable.tyler, R.drawable.polk, R.drawable.taylor, R.drawable.fillmore,
+                R.drawable.pierce, R.drawable.buchanan, R.drawable.lincoln, R.drawable.johnson, R.drawable.grant, R.drawable.hayes, R.drawable.garfield,
+                R.drawable.arthur, R.drawable.cleveland, R.drawable.bharrison,  R.drawable.cleveland,R.drawable.mckinley, R.drawable.troosevelt, R.drawable.taft, R.drawable.wilson,
+                R.drawable.harding, R.drawable.coolidge, R.drawable.hoover, R.drawable.fdroosevelt, R.drawable.truman, R.drawable.eisenhower, R.drawable.kennedy,
+                R.drawable.johnson, R.drawable.nixon, R.drawable.ford, R.drawable.carter, R.drawable.reagan, R.drawable.bush, R.drawable.clinton,
+                R.drawable.gwbush, R.drawable.obama};
+
         InputStream in=getResources().openRawResource(R.raw.presidents);
 
-       presidents= gson.fromJson(new InputStreamReader(in), President[].class);
+      President[] presidents= gson.fromJson(new InputStreamReader(in), President[].class);
 
-        PresidentAdapter adapter=new PresidentAdapter(presidents);
+        PresidentRecycleViewAdapter adapter=new PresidentRecycleViewAdapter(presidents, photos);
         recyclerView.setAdapter(adapter);
 
     }
