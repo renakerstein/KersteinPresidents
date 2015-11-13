@@ -49,12 +49,17 @@ public class PresidentPagerAdapter extends PagerAdapter {
         number.setText(String.valueOf(president.getNumber()));
         if(president.getDeath_year()==null)
         {
-            year.setText(String.valueOf(president.getBirth_year()) +" - null");
+            year.setText(String.valueOf(president.getBirth_year()) +" - still living");
         }
         else{
             year.setText(String.valueOf(president.getBirth_year()) +" - "+String.valueOf(president.getDeath_year()));
         }
-        office.setText(president.getTook_office()+" - "+president.getLeft_office());
+        if(president.getLeft_office()==null){
+            office.setText(president.getTook_office()+" - still in office");
+        }
+        else {
+            office.setText(president.getTook_office() + " - " + president.getLeft_office());
+        }
         party.setText(president.getParty());
 
         container.addView(view);
